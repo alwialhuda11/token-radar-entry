@@ -90,6 +90,25 @@ protocol's own published link. The board ranks what the snapshot records; it can
 token a protocol has not disclosed to DefiLlama. Stating those limits is part of the radar's job,
 because a reader who understands the model's inputs can judge the ranking for themselves.
 
+## 11. A worked example of the arithmetic
+
+Take a protocol with a TVL of $1 billion, a seven-day change of +20%, a listing 730 days before
+the snapshot, and presence on three chains. The base is $250 million. The growth multiplier is
+`1 + 0.20 × 0.55 = 1.11`. The maturity multiplier is `0.6 + (730/1095) × 0.4 = 0.867`. The chain
+multiplier is `1 + 3 × 0.02 = 1.06`. The implied value is therefore about $238 million. Every
+reader can reproduce this from the same four columns the dashboard shows, and every other row
+uses the identical formula with its own figures. The example is not a claim about any named
+protocol; it only shows that the model is simple enough to audit by hand.
+
+## 12. What would change the ranking
+
+Because the board is a function of the snapshot, a different snapshot would give a different
+board without any code edit. A week of strong inflows raises a protocol's growth multiplier; a
+protocol that lists a token drops out of the pre-token board and moves to the live view; a protocol
+that appears on another chain gains a small chain bonus. Those are the only channels through which
+the figures move the ranking. Keeping the model small makes each of those effects visible to a
+reader instead of buried in a fitted score.
+
 ## 10. Why no hardcoded ranking
 
 A list of names would score well on today's snapshot and say nothing about tomorrow's. This model
