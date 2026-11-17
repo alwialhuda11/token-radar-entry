@@ -64,7 +64,7 @@ if (captures.length < 3) {
 
 const dossier = buildDossier(outputDir, {
   text_max_bytes: 163840,
-  screenshots: { max: 4, max_bytes: 524288 },
+  screenshots: { max: 4, max_bytes: 262144 },
   game_max_files: 993,
   game_max_bytes: 50331648,
   game_path_max_bytes: 1000,
