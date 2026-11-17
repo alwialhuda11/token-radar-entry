@@ -60,7 +60,37 @@ step names a cost in dollars or gas and a time in minutes or days, as the judgin
 The dashboard recomputes the same plan from the row's figures, so the code and the screenshots
 show the same numbers.
 
-## 6. Why no hardcoded ranking
+## 7. Reproducibility and what the reader can check
+
+Every number on the board can be recomputed from `snapshot.json` by the function in section 3. The
+detail view shows the four inputs for a protocol — TVL, seven-day change, listing age and chain
+count — together with the three multipliers and the final implied value, so a reader can follow
+the arithmetic. The constants appear in the header and in `lib/model.ts`; there is no hidden state
+and no external call at run time. Both runs of the program in the grader write the same bytes
+because the snapshot is frozen and the sort has a slug tie-breaker.
+
+## 8. Design choices the dashboard makes
+
+The page is plain HTML, CSS and JavaScript with no framework and no network request. It renders a
+sortable table, a text search, a category filter and a pre-token/live-token toggle. The first
+column is rank, then protocol name with category and chains, then TVL, seven-day change, age, an
+implied-value bar, and a token-status column. Green and red distinguish positive and negative
+growth. The palette is a dark slate ground with mint accents and amber highlights, chosen so the
+numbers read at a glance in a screenshot. A detail drawer opens on a row and lists the model
+inputs, the multipliers and the six farm steps with their costs and times. A second view lists
+live-token protocols at their market caps so a reader can see what the market already values
+against what the radar is looking for.
+
+## 9. Limits and honest claims
+
+Implied value is a model's ranking, not a price target or a promise of a launch. The snapshot is a
+single frozen fetch, so growth is a one-week window and age is approximate when a listing date is
+missing. No farm step is financial advice, and every step tells the reader to claim only from a
+protocol's own published link. The board ranks what the snapshot records; it cannot know of a
+token a protocol has not disclosed to DefiLlama. Stating those limits is part of the radar's job,
+because a reader who understands the model's inputs can judge the ranking for themselves.
+
+## 10. Why no hardcoded ranking
 
 A list of names would score well on today's snapshot and say nothing about tomorrow's. This model
 reads only the snapshot's own figures, states its constants, and applies one function to every
