@@ -1,0 +1,100 @@
+/* Radar identity: deep-navy instruments, cyan telemetry, lime signals.
+   Loaded after app.css; it only re-skins the existing accessible structure. */
+:root {
+  color-scheme: dark;
+  --canvas: #0d2440;
+  --surface: #123253;
+  --ink: #eaf6ff;
+  --muted: #b8d2ea;
+  --border: #2f5f91;
+  --accent: #46e0ff;
+  --positive: #9dff8a;
+  --negative: #ff7b9c;
+}
+body {
+  background:
+    radial-gradient(1100px 620px at 82% -8%, rgba(40, 190, 255, 0.28), transparent 60%),
+    radial-gradient(900px 560px at 4% 12%, rgba(140, 90, 255, 0.24), transparent 62%),
+    var(--canvas);
+  color: var(--ink);
+}
+a { color: var(--accent); }
+.shell { max-width: 1440px; }
+.top {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(100deg, rgba(12, 42, 76, 0.96), rgba(22, 24, 72, 0.96));
+}
+.brand-name { color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; font-size: 12px; }
+h1 { font-size: 38px; letter-spacing: -0.04em; }
+h2 { font-size: 23px; }
+.lede { color: var(--muted); font-size: 16px; }
+.panel {
+  background: linear-gradient(180deg, rgba(23, 62, 104, 0.96), rgba(13, 38, 68, 0.96));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.30);
+}
+.facts { gap: 18px; }
+.fact {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(20, 56, 92, 0.55);
+  padding: 18px 22px;
+}
+.fact b { color: var(--accent); font-size: 28px; }
+.controls input, .controls select {
+  background: #0a1a30;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.button, button {
+  border-radius: 10px;
+}
+.button.primary {
+  background: linear-gradient(120deg, #28b8e8, #6df3d0);
+  color: #041624;
+  border: 0;
+  font-weight: 700;
+}
+.tabs button[aria-selected='true'], .tabs .active {
+  background: rgba(70, 224, 255, 0.18);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+table { border-collapse: separate; border-spacing: 0; }
+thead th {
+  background: rgba(16, 48, 84, 0.96);
+  color: #bfe8ff;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 12px;
+}
+tbody tr { border-bottom: 1px solid rgba(70, 120, 170, 0.20); }
+tbody tr:hover { background: rgba(70, 224, 255, 0.08); }
+tbody tr:nth-child(-n+10) .rank { color: var(--positive); font-weight: 800; }
+.rank, .num, .implied { font-family: var(--font-num); }
+.implied { color: var(--positive); font-weight: 700; }
+.pos { color: var(--positive); }
+.neg { color: var(--negative); }
+.bar { background: rgba(70, 224, 255, 0.18); border-radius: 99px; }
+.bar > span, .bar i { background: linear-gradient(90deg, #28b8e8, #9dff8a); }
+.formula, .equation {
+  background: rgba(4, 16, 32, 0.82);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: #d9f4ff;
+  padding: 16px;
+  font-family: var(--font-num);
+}
+.detail {
+  background: #103052;
+  color: var(--ink);
+  border: 1px solid var(--accent);
+  border-radius: 18px;
+}
+.detail::backdrop { background: rgba(2, 8, 20, 0.74); }
+.steps li { border-left: 2px solid var(--accent); padding-left: 14px; margin-bottom: 14px; }
+.cost { color: var(--muted); }
+.table-wrap { max-height: 780px; }
