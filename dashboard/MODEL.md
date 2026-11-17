@@ -57,6 +57,13 @@ and the wider early radar are sorted by the implied value this function
 produces; protocols that already trade are shown separately with their market
 cap, because their price is a fact rather than an estimate.
 
+## Reproducibility
+
+The same snapshot always produces the same board. Ranks are dense and ties are
+broken by slug, so the output is byte-stable between runs. The dashboard reads
+only the generated data file and never contacts a network, which means a saved
+copy of the entry behaves exactly like the live page.
+
 ## Farm plan
 
 Each row carries six steps: isolate a fresh wallet, make the category-specific
